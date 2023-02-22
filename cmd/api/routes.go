@@ -23,6 +23,8 @@ func (app *application) routes() http.Handler {
 	router.HandlerFunc(http.MethodPatch, "/v1/brands/:id", app.requireRole("ADMIN", app.updateBrandHandler))
 	router.HandlerFunc(http.MethodDelete, "/v1/brands/:id", app.requireRole("ADMIN", app.deleteBrandHandler))
 
+	router.HandlerFunc(http.MethodPut, "/v1/buy/:id", app.requireRole("USER", app.addToCartHandler))
+	router.HandlerFunc(http.MethodGet, "/v1/cart", app.requireRole("USER", app.showCartHandler))
 	router.HandlerFunc(http.MethodDelete, "/v1/users/:id", app.requireRole("ADMIN", app.deleteUserHandler))
 
 	router.HandlerFunc(http.MethodPost, "/v1/users", app.registerUserHandler)
