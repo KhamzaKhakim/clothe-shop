@@ -53,7 +53,7 @@ func main() {
 	flag.IntVar(&cfg.port, "port", PortInt, "API server port")
 	flag.StringVar(&cfg.env, "env", "development", "Environment (development|staging|production)")
 	flag.StringVar(&cfg.db.dsn, "db-dsn", "postgres://vjpnangs:Udf2rqtSwjOcptPwDNNs6P303UHFHjYB@mouse.db.elephantsql.com/vjpnangs", "PostgreSQL DSN")
-	g
+
 	flag.IntVar(&cfg.db.maxOpenConns, "db-max-open-conns", 25, "PostgreSQL max open connections")
 	flag.IntVar(&cfg.db.maxIdleConns, "db-max-idle-conns", 25, "PostgreSQL max idle connections")
 	flag.StringVar(&cfg.db.maxIdleTime, "db-max-idle-time", "15m", "PostgreSQL max connection idle time")
