@@ -133,7 +133,6 @@ func (m ClotheModel) GetAll(name string, brand string, priceMax int64, priceMin 
 	for i := 0; i < len(sizes); i++ {
 		sizesUpper = append(sizesUpper, strings.ToUpper(sizes[i]))
 	}
-	println(brand)
 	query := fmt.Sprintf(`
 								SELECT *
 								FROM clothes
