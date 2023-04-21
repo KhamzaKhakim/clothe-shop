@@ -8,7 +8,6 @@ import (
 	"database/sql" // New import
 	"flag"
 	"os"
-	"strconv"
 	"sync"
 	"time"
 	// Import the pq driver so that it can register itself with the database/sql
@@ -18,6 +17,8 @@ import (
 )
 
 const version = "1.0.0"
+
+var app1 application
 
 type config struct {
 	port int
@@ -47,12 +48,12 @@ type application struct {
 func main() {
 	var cfg config
 
-	Port := os.Getenv("PORT")
-	PortInt, _ := strconv.Atoi(Port)
+	//Port := os.Getenv("PORT")
+	//PortInt, _ := strconv.Atoi(Port)
 
-	flag.IntVar(&cfg.port, "port", PortInt, "API server port")
+	flag.IntVar(&cfg.port, "port", 4000, "API server port")
 	flag.StringVar(&cfg.env, "env", "development", "Environment (development|staging|production)")
-	flag.StringVar(&cfg.db.dsn, "db-dsn", "postgres://vjpnangs:Udf2rqtSwjOcptPwDNNs6P303UHFHjYB@mouse.db.elephantsql.com/vjpnangs", "PostgreSQL DSN")
+	flag.StringVar(&cfg.db.dsn, "db-dsn", "postgres://postgres:1234@localhost/clothe_shop?sslmode=disable", "PostgreSQL DSN")
 
 	flag.IntVar(&cfg.db.maxOpenConns, "db-max-open-conns", 25, "PostgreSQL max open connections")
 	flag.IntVar(&cfg.db.maxIdleConns, "db-max-idle-conns", 25, "PostgreSQL max idle connections")
